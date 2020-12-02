@@ -14,15 +14,11 @@ fn template_work_test() {
 fn template_fail_test() {
 	new_test_ext().execute_with(|| {
 		assert_noop!(
-			Template::template_call(Origin::signed(1), Err(<Error<Test>>::TemplateError.into())),
-			<Error<Test>>::TemplateError
+			Template::template_call(
+				Origin::signed(1),
+				Err(<Error<Test, _>>::TemplateError.into())
+			),
+			<Error<Test, _>>::TemplateError
 		);
-		// assert_noop!(
-		// 	Template::template_call(
-		// 		Origin::signed(1),
-		// 		Err(<Error<Test, _>>::TemplateError.into())
-		// 	),
-		// 	<Error<Test, _>>::TemplateError
-		// );
 	});
 }
