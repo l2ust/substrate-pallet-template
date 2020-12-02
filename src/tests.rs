@@ -17,12 +17,5 @@ fn template_fail_test() {
 			Template::template_call(Origin::signed(1), Err(<Error<Test>>::TemplateError.into())),
 			<Error<Test>>::TemplateError
 		);
-		// assert_noop!(
-		// 	Template::template_call(
-		// 		Origin::signed(1),
-		// 		Err(<Error<Test, _>>::TemplateError.into())
-		// 	),
-		// 	<Error<Test, _>>::TemplateError
-		// );
 	});
 }
