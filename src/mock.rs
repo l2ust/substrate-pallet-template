@@ -10,6 +10,10 @@ use sp_runtime::{
 // --- template ---
 use crate::*;
 
+pub type BlockNumber = u64;
+pub type AccountId = u64;
+pub type Index = u64;
+
 pub type Template = Module<Test>;
 
 impl_outer_origin! {
@@ -37,11 +41,11 @@ impl frame_system::Trait for Test {
 	type BaseCallFilter = ();
 	type Origin = Origin;
 	type Call = ();
-	type Index = u64;
-	type BlockNumber = u64;
+	type Index = Index;
+	type BlockNumber = BlockNumber;
 	type Hash = H256;
 	type Hashing = BlakeTwo256;
-	type AccountId = u64;
+	type AccountId = AccountId;
 	type Lookup = IdentityLookup<Self::AccountId>;
 	type Header = Header;
 	type Event = ();
